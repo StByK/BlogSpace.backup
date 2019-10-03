@@ -1,36 +1,49 @@
 %h2
-  Edit #{resource_name.to_s.humanize}
+  ご登録内容の変更
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
+  .row
+    .field.col.s4.offset-s4
+      = f.label :name
       %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
+      = f.text_field :name, autofocus: true, autocomplete: "name"
+  .row
+    .field.col.s4.offset-s4
+      = f.label :email
+      %br/
+      = f.email_field :email, autocomplete: "email"
+  .row
+    .field.col.s4.offset-s4
+      = f.label :password
+      %i (leave blank if you don't want to change it)
+      %br/
+      = f.password_field :password, autocomplete: "new-password"
+      - if @minimum_password_length
+        %br/
+        %em
+          = @minimum_password_length
+          characters minimum
+  .row
+    .field.col.s4.offset-s4
+      = f.label :password_confirmation
+      %br/
+      = f.password_field :password_confirmation, autocomplete: "new-password"
+  .row
+    .field.col.s4.offset-s4
+      = f.label :current_password
+      %i (we need your current password to confirm your changes)
+      %br/
+      = f.password_field :current_password, autocomplete: "current-password"
+  .row
+    .waves-effect.waves-light.btn-large.col.s4.offset-s4
+      = f.submit "Update"
+
+%h3 アカウントの削除
 %p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+  BlogSpace.が気に入りませんでしたか?
+  %br/
+  またお会いできるのを楽しみにしています
+.row
+  .red.accent-3.waves-effect.waves-light.btn-large.accent-2.col.s4.offset-s4
+    #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
 = link_to "Back", :back
