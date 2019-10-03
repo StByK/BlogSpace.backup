@@ -11,10 +11,20 @@
   %body
     %nav
       .nav-wrapper
-        %a.brand-logo{:href => "#!"} BlogSpace.
+        .brand-logo
+          = link_to root_path do
+            BlogSpace.
         %ul.right.hide-on-med-and-down
-          %li
-            %a.waves-effect.waves-light.btn Button
+          - if user_signed_in?
+            %li
+              .waves-effect.waves-light.btn
+                = link_to destroy_user_session_path do
+                  ログアウト
+          - else
+            %li
+              .waves-effect.waves-light.btn
+                = link_to user_session_path do
+                  ログイン
           %li
             %a.waves-effect.waves-light.btn
               Button
