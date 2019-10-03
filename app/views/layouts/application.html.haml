@@ -7,5 +7,18 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
   %body
+    %nav
+      .nav-wrapper
+        %a.brand-logo{:href => "#!"} BlogSpace.
+        %ul.right.hide-on-med-and-down
+          %li
+            %a.waves-effect.waves-light.btn Button
+          %li
+            %a.waves-effect.waves-light.btn
+              Button
+              %i.material-icons.right cloud
+          %li
+            %a.waves-effect.waves-light.btn-large Large Button    
     = yield
