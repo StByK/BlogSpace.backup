@@ -1,2 +1,4 @@
 .main-contents
-  = render 'content'
+  .container
+    .row.flex
+      = render partial: 'content',  collection: @posts, as: "post"
