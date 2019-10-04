@@ -3,3 +3,7 @@
 @import "material_icons";
 @import "notification";
 @import "post-index";
+
+.pagination li.active a {
+  color: #fff;
+}
