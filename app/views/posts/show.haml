@@ -1,0 +1,12 @@
+.row
+  .col.m10.offset-m1
+    .card.blue-grey.darken-1.show
+      .card-content.white-text
+        %span.card-title
+          = @post.title
+        %p.card-text
+          = @post.content
+        %p.card-info
+          = @author.name
+        %p.card-info
+          = @author.created_at

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.paginate(page: params[:page], per_page: 9)
+    @posts = Post.paginate(page: params[:page], per_page: 9).order("id DESC")
   end
 
   def new
@@ -12,6 +12,11 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_path, notice: "投稿が完了しました"
     end
+  end
+
+  def show
+    @post = Post.find(params[:id])
+    @author = User.find(@post.user_id)
   end
 
   def edit

@@ -1,0 +1,12 @@
+.show {
+  .card-content {
+    height: calc(100vh - 106.5px);
+    .card-text {
+      padding-bottom: 10px;
+      border-bottom: solid;
+      margin-bottom: 10px;
+      white-space: pre-wrap; 
+    }
+  }
+  
+}
