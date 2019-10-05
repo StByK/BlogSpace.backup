@@ -2,11 +2,10 @@
   .row
     .field.col.s4.offset-s4
       = f.label :タイトル
-      %br/
       = f.text_field :title, autofocus: true, placeholder: "伝えたい出来事に名前をつけよう"
   .row
     .field.col.s4.offset-s4
       = f.label :内容
-      = f.text_area :content, placeholder: "伝えたい出来事を届けよう"
+      = f.text_area :content, placeholder: "伝えたい出来事を届けよう", class: "textarea"
   .row
     = f.submit "投稿", class: "waves-effect waves-light btn-large col s4 offset-s4"

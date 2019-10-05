@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'posts#index'
-  get 'posts/index'
+  get 'posts/filter' => 'posts#filter'
   resources :posts, only: [:index, :new, :create, :edit, :destroy, :show, :update]
   devise_for :users
   devise_scope :user do

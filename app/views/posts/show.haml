@@ -15,6 +15,9 @@
             = link_to "/posts/#{@post.id}/edit", class: "waves-effect waves-teal btn" do
               記事の編集
               %i.material-icons.right edit
-            = link_to "/posts/#{@post.id}", class: "waves-effect waves-teal btn" do
+            = link_to "/posts/#{@post.id}", class: "waves-effect waves-teal btn", method: :delete do
               削除
               %i.material-icons.right delete
+          = link_to :back, class: "waves-effect waves-teal btn" do
+            戻る
+            %i.material-icons.right arrow_back
