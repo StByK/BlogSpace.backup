@@ -1,8 +1,8 @@
 @import "reset";
 @import "materialize";
 @import "material_icons";
-@import "notification";
 @import "post-index";
+@import "notification";
 
 .pagination li.active a {
   color: #fff;
@@ -17,6 +17,5 @@
     width: 100%;
     height: 100%;
     text-align: center;
- 
   }
 }

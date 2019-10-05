@@ -35,8 +35,7 @@
       %br/
       = f.password_field :current_password, autocomplete: "current-password"
   .row
-    .waves-effect.waves-light.btn-large.col.s4.offset-s4
-      = f.submit "Update"
+    = f.submit "Update", class: "waves-effect waves-light btn-large col s4 offset-s4"
 
 %h3 アカウントの削除
 %p

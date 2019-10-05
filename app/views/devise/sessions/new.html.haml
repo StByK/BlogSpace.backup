@@ -2,20 +2,15 @@
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .row
     .field.col.s4.offset-s4
-      = f.label :name
-      %br/
-      = f.text_field :name, autofocus: true, autocomplete: "name"
-  .row
-    .field.col.s4.offset-s4
       = f.label :email
       %br/
-      = f.email_field :email, autocomplete: "email"
+      = f.email_field :email, autofocus: true, autocomplete: "email"
   .row
     .field.col.s4.offset-s4
       = f.label :password
       %br/
       = f.password_field :password, autocomplete: "current-password"
   .row
-    .waves-effect.waves-light.btn-large.col.s4.offset-s4
-      = f.submit "Log in", class: "white-text button"
+    = f.submit "Log in", class: "waves-effect waves-light btn-large col s4 offset-s4"
+
 
