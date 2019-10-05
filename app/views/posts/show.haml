@@ -7,6 +7,14 @@
         %p.card-text
           = @post.content
         %p.card-info
-          = @author.name
+          = "投稿者：#{@author.name}"
         %p.card-info
           = @author.created_at
+        %p.card-edit
+          -if user_signed_in? && @author.id == current_user.id
+            = link_to "/posts/#{@post.id}/edit", class: "waves-effect waves-teal btn" do
+              記事の編集
+              %i.material-icons.right edit
+            = link_to "/posts/#{@post.id}", class: "waves-effect waves-teal btn" do
+              削除
+              %i.material-icons.right delete

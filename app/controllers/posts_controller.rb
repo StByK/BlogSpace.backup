@@ -20,12 +20,18 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def update
+    post = Post.find(params[:id])
+    post.update(post_params) if post.user_id == current_user.id
+    redirect_to "/posts/#{params[:id]}"
   end
 
   def destroy
+    post = Post.find(params[:id])
+    post.destroy(post_params) if post.user_id == current_user.id
   end
 
   private
