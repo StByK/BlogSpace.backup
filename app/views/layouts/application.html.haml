@@ -17,18 +17,16 @@
         %ul.right.hide-on-med-and-down
           - if user_signed_in?
             %li
-              .waves-effect.waves-light.btn
-                = link_to destroy_user_session_path do
-                  ログアウト
+              = link_to destroy_user_session_path, class: "waves-effect waves-light btn" do
+                ログアウト
           - else
             %li
-              .waves-effect.waves-light.btn
-                = link_to user_session_path do
-                  ログイン
+              = link_to user_session_path, class: "waves-effect waves-light btn" do
+                ログイン
           %li
-            %a.waves-effect.waves-light.btn
-              Button
-              %i.material-icons.right cloud
+            = link_to  edit_user_registration_path, class: "waves-effect waves-light btn" do
+              登録内容の編集
+              %i.material-icons.right build
           %li
             %a.waves-effect.waves-light.btn-large Large Button    
     = render "layouts/notifications"
