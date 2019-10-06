@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-before_action :intercept_unknown_user, except: :index
+before_action :intercept_unknown_user, except: [:index, :show]
 
   def index
     @posts = Post.paginate(page: params[:page], per_page: 9).order("id DESC")
