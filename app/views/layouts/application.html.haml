@@ -9,25 +9,40 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
 
   %body
-    %nav
+    %nav.grey.darken-4
       .nav-wrapper
         .brand-logo
           = link_to root_path do
             BlogSpace.
         %ul.right.hide-on-med-and-down
           - if user_signed_in?
+            %li.username
+              ようこそ#{current_user.name}
             %li
               = link_to destroy_user_session_path, class: "waves-effect waves-light btn" do
                 ログアウト
+                %i.material-icons.right cancel
+            %li
+              = link_to edit_user_registration_path, class: "waves-effect waves-light btn" do
+                登録内容の編集
+                %i.material-icons.right build
+            %li
+              = link_to "/posts/filter", class: "waves-effect waves-light btn" do
+                自分の投稿一覧
+                %i.material-icons.right search
+            %li
+              = link_to new_post_path, class: "waves-effect waves-light btn-large" do
+                記事の投稿
+                %i.material-icons.right create
           - else
+            %li.username
+              ようこそゲストさん
             %li
               = link_to user_session_path, class: "waves-effect waves-light btn" do
                 ログイン
-          %li
-            = link_to  edit_user_registration_path, class: "waves-effect waves-light btn" do
-              登録内容の編集
-              %i.material-icons.right build
-          %li
-            %a.waves-effect.waves-light.btn-large Large Button    
+                %i.material-icons.right assignment_turned_in
+              = link_to new_user_registration_path, class: "waves-effect waves-light btn" do
+                サインアップ
+                %i.material-icons.right person_add
     = render "layouts/notifications"
     = yield

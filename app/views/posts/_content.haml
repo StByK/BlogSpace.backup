@@ -6,6 +6,6 @@
       %p.card-text
         = post.content.truncate(50, omission: '...')
     .card-action.post-option
-      = link_to "/posts/#{post.id}" , class: "waves-effect waves-teal btn-flat" do
+      = link_to "/posts/#{post.id}", class: "waves-effect waves-teal btn-flat" do
         詳細
         %i.material-icons.right pageview

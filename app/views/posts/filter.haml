@@ -1,0 +1,11 @@
+.filter-alert
+  "#{current_user.name}さんの投稿一覧"
+
+.main-contents
+  .container
+    .row.flex
+      = render partial: 'content',  collection: @posts, as: "post"
+  = link_to root_path, class: "btn-floating btn-large waves-effect waves-light red" do
+    %i.material-icons clear
+%ul.pagination
+  = will_paginate @posts

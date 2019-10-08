@@ -6,6 +6,19 @@
 @import "post-show";
 @import "notification";
 
+body {
+  height: 100vh;
+  background-color: #e0e0e0 ;
+}
+
+.textcenter {
+  text-align: center;
+}
+
+.username {
+  font-size: 20px;
+}
+
 .pagination li.active a {
   color: #fff;
 }
