@@ -14,6 +14,8 @@ before_action :intercept_unknown_user, except: [:index, :show]
     @post = Post.new(post_params)
     if @post.save
       redirect_to root_path, notice: "投稿が完了しました"
+    else
+      redirect_to root_path, alert: "エラー：投稿できませんでした"
     end
   end
 
@@ -33,7 +35,11 @@ before_action :intercept_unknown_user, except: [:index, :show]
   def update
     post = Post.find(params[:id])
     post.update(post_params) if post.user_id == current_user.id
-    redirect_to "/posts/#{params[:id]}"
+    if post.update(post_params)
+      redirect_to "/posts/#{params[:id]}"
+    else
+      redirect_to "/posts/#{params[:id]}", alert: "エラー：編集できませんでした"
+    end
   end
 
   def destroy
